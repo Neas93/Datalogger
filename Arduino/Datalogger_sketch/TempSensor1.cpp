@@ -1,16 +1,15 @@
 #include "TempSensor1.h"
 
-TempSensor::TempSensor(int pin) : sensor(pin) { }
+// Konstruktør
+TempSensor1::TempSensor1(int pin) : sensor(pin) { }
 
-
-float TempSensor::readTemperature() 
+float TempSensor1::readTemperature() 
 {
-    sensor.read(); 
+    sensor.read();
     return sensor.getTemperature();
 }
 
-
-float TempSensor::readHumidity()
+float TempSensor1::readHumidity()
 {
     sensor.read();
     return sensor.getHumidity();
