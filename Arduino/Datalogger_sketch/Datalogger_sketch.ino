@@ -1,7 +1,7 @@
 #include "TempSensor1.h"
 #include "TempSensor2.h"
 
-// Opret objekter med unikke navne
+
 TempSensor1 sensor1(7);
 TempSensor2 sensor2(6);
 
@@ -40,5 +40,5 @@ void loop()
     Serial.println("%");
     }
 
-    delay(2000); // 1 sekund pause
+    delay(2000); 
 }
