@@ -8,6 +8,7 @@ TempSensor2 sensor2(6);
 void setup()
 {
     Serial.begin(9600);
+    delay(3000);
 }
 
 void loop()
@@ -21,16 +22,23 @@ void loop()
     float hum2  = sensor2.readHumidity();
 
     // Print Sensor 1
+    if (temp1 > -30)
+    {
     Serial.print("Sensor 1 - Temperatur: ");
     Serial.print(temp1, 1);
     Serial.print(" °C, Fugtighed: ");
-    Serial.println(hum1, 1);
-
+    Serial.print(hum1, 1);
+    Serial.println("%");
+    }
     // Print Sensor 2
+    if (temp2 > -30)
+    {
     Serial.print("Sensor 2 - Temperatur: ");
     Serial.print(temp2, 1);
     Serial.print(" °C, Fugtighed: ");
-    Serial.println(hum2, 1);
+    Serial.print(hum2, 1);
+    Serial.println("%");
+    }
 
-    delay(1000); // 1 sekund pause
+    delay(2000); // 1 sekund pause
 }
