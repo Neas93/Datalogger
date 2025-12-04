@@ -1,7 +1,7 @@
 #include "TempSensor1.h"
 #include "TempSensor2.h"
 
-TempSensor sensor(7); // digital pin 6, som i din fungerende kode
+TempSensor sensor(7);
 
 void setup()
 {
