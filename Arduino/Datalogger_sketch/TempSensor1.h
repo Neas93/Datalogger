@@ -2,12 +2,12 @@
 #include <Arduino.h>
 #include <dhtnew.h>
 
-class TempSensor 
+class TempSensor1
 {
 public:
     DHTNEW sensor;
 
-    TempSensor(int pin);
+    TempSensor1(int pin);
 
     float readTemperature();
     float readHumidity();
