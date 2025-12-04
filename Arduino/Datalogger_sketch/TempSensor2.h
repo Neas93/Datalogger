@@ -1,17 +1,14 @@
-#include "TempSensor2.h"
+#pragma once
+#include <Arduino.h>
+#include <dhtnew.h>
 
-TempSensor::TempSensor(int pin) : sensor(pin) { }
-
-
-float TempSensor::readTemperature() 
+class TempSensor 
 {
-    sensor.read(); 
-    return sensor.getTemperature();
-}
+public:
+    DHTNEW sensor;
 
+    TempSensor(int pin);
 
-float TempSensor::readHumidity()
-{
-    sensor.read();
-    return sensor.getHumidity();
-}
+    float readTemperature();
+    float readHumidity();
+};
