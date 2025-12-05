@@ -1,3 +1,4 @@
+/*
 #include "OLED.h"
 
 OledDisplay::OledDisplay():
@@ -47,3 +48,4 @@ void OledDisplay::showData(const char* date, const char* time, float temp1, floa
 
     display.display();
 }
+*/
