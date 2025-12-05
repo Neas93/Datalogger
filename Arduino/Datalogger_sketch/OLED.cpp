@@ -17,9 +17,9 @@ void OledDisplay::showData(const char* date, const char* time, float temp1, floa
     display.clearDisplay();
     
     // TITEL er fjernet, da der ikke er plads på OLED displayet til al information.
-//    display.setTextSize(2);
-//    display.setCursor(0, 0);
-//    display.println("Datalogger");
+    display.setTextSize(2);
+    display.setCursor(0, 0);
+    display.println("Datalogger");
 
     display.setTextSize(1);
     display.setCursor(0,0);
