@@ -1,5 +1,4 @@
-#ifndef OLED_DISPLAY_H
-#define OLED_DISPLAY_H
+/*#pragma once
 
 #include <Arduino.h>
 #include <Wire.h>
