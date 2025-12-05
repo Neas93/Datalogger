@@ -23,11 +23,19 @@ void OledDisplay::showData(const char* date, const char* time, float temp1, floa
 
     display.setTextSize(1);
     display.setCursor(0,0);
-    display.print("dato(stamp):");
-    display.print(timestamp);
+    display.print("dato:");
+    display.print(dt.day);
+    display.print("/");
+    display.print(dt.month)
+    display.print("-");
+    display.print(dt.year);
 
-    diasply.print("\nTid(stamp):");
-    display.print(timestamp);
+    diasply.print("\nTid:");
+    display.print(dt.hour);
+    display.print(":");
+    display.print(dt.minute);
+    display.print(":");
+    display.print(dt.second);
 
     display.print("\nTemp. inde");
     display.print(temp1, 1);
