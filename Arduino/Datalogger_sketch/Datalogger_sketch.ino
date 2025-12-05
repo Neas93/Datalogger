@@ -21,51 +21,55 @@ void setup()
 
 void loop()
 {
-    // Læs sensorer
-    float temp1 = sensor1.readTemperature();
-    float hum1  = sensor1.readHumidity();
+    float temp1 = 0;
+    float hum1  = 0;
+    float temp2 = 0;
+    float hum2  = 0;
 
-    float temp2 = sensor2.readTemperature();
-    float hum2  = sensor2.readHumidity();
+    // Fejlsikring: tjek kun temperaturer
+    while (true)
+    {
+        // Læs sensorer (brug eksisterende variabler)
+        temp1 = sensor1.readTemperature();
+        hum1  = sensor1.readHumidity();
+
+        temp2 = sensor2.readTemperature();
+        hum2  = sensor2.readHumidity();
+
+        Serial.print("Temp1: "); Serial.print(temp1);
+        Serial.print(" | Temp2: "); Serial.println(temp2);
+
+        // Bryd loopet hvis begge temperaturer er OK
+        if (temp1 > -40 && temp2 > -40)
+        {
+            break;
+        }
+
+        Serial.println("Fejl i temperaturmåling, prøver igen...");
+        delay(2000);
+    }
 
     // Udskriv til Serial
-    if (temp1 > -30)
-    {
-        Serial.print("Sensor 1 - Temperatur: ");
-        Serial.print(temp1, 1);
-        Serial.print(" °C, Fugtighed: ");
-        Serial.print(hum1, 1);
-        Serial.println("%");
-    }
+    Serial.print("Sensor 1 - Temperatur: ");
+    Serial.print(temp1, 1);
+    Serial.print(" °C, Fugtighed: ");
+    Serial.print(hum1, 1);
+    Serial.println("%");
 
-    if (temp2 > -30)
-    {
-        Serial.print("Sensor 2 - Temperatur: ");
-        Serial.print(temp2, 1);
-        Serial.print(" °C, Fugtighed: ");
-        Serial.print(hum2, 1);
-        Serial.println("%");
-    }
+    Serial.print("Sensor 2 - Temperatur: ");
+    Serial.print(temp2, 1);
+    Serial.print(" °C, Fugtighed: ");
+    Serial.print(hum2, 1);
+    Serial.println("%");
 
-    // Log til SD med timestamp
+    // Timestamp
     String timestamp = clock1.getTimestamp();
 
-    if (temp1 > -30 && temp2 > -30)
-{
+    // Log til SD
     sdlog.log(timestamp, temp1, hum1, temp2, hum2);
-}
-else if (temp1 < -30 && temp2 > -30)
-{
-    sdlog.log(timestamp, NAN, NAN, temp2, hum2);
-}
-else if (temp1 > -30 && temp2 < -30)
-{
-    sdlog.log(timestamp, temp1, hum1, NAN, NAN);  
-}
 
-    // Tilføj timestamp i Serial (valgfrit)
     Serial.print("Tidspunkt: ");
     Serial.println(timestamp);
 
-    delay(5000); // 5 sekunder; ændr til 10 min = 600000 ms
+    delay(2000); // 10 min
 }
