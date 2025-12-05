@@ -4,7 +4,7 @@
 
 TempSensor1 sensor1(7);
 TempSensor2 sensor2(6);
-SD_log sdlog(53, "Hive_Log.txt");
+SD_log sdlog(53, "HiveLog1.txt");
 
 void setup()
 {
