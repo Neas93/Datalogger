@@ -20,6 +20,7 @@ void SD_log::begin()
     File file = SD.open(fileName, FILE_WRITE);
     if (file) {
         file.println("Starter logføring:");
+        file.println("Ved fejl i måling skrives "NAN"")
         file.close();
     }
 }
