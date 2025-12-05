@@ -1,6 +1,6 @@
 #include "TempSensor1.h"
 
-// Konstruktør
+
 TempSensor1::TempSensor1(int pin) : sensor(pin) { }
 
 float TempSensor1::readTemperature() 
