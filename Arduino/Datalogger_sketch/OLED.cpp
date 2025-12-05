@@ -22,7 +22,7 @@ void OledDisplay::showData(const char* date, const char* time, float temp1, floa
     display.println("Datalogger");
 
     display.setTextSize(1);
-    display.setCursor(0,0);
+    display.setCursor(0,35);
     display.print("dato:");
     display.print(dt.day);
     display.print("/");
