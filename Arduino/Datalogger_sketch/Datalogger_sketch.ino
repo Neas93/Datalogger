@@ -44,12 +44,12 @@ void loop()
         sdlog.log(temp1, hum1, temp2, hum2);
     }
 
-    else if (temp2 > -30 && temp1 < -30)
+    else if (temp1 < -30 && temp2 > -30)
     {
         sdlog.log(NAN, NAN, temp2, hum2);
     }
 
-    else if (temp2 < -30 && temp1 > -30)
+    else if (temp1 > -30 && temp2 < -30)
     {
         sdlog.log(temp1, hum1, NAN, NAN);  
     }
