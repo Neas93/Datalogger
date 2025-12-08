@@ -1,5 +1,6 @@
 #pragma once
-
+#include <Arduino.h>
+//Variabler til sensorerne 
 struct SensorData {
     float temp1;
     float hum1;
