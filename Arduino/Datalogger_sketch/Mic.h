@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-/*#pragma once
+/*<<<<<<< HEAD
+#pragma once
 
 class MicSensor {
 public:
@@ -9,7 +9,7 @@ public:
     bool aktivitet();       // Returnerer true hvis der er lyd
 };
 =======
-/*
+
 #pragma once
 #include <Arduino.h>
 

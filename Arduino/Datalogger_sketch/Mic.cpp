@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-/*#include "Mic.h"
+/*<<<<<<< HEAD
+#include "Mic.h"
 #include <Arduino.h>
 
 MicSensor::MicSensor(int p) : pin(p) {
@@ -10,9 +10,9 @@ MicSensor::MicSensor(int p) : pin(p) {
 bool MicSensor::aktivitet() {
     return digitalRead(pin) == HIGH;
 }
-*/
+
 =======
-/*
+
 const int microphonePin = A0;
 void setup() {
   Serial.begin(9600);
@@ -38,5 +38,6 @@ void loop() {
   Serial.print(mx);
   Serial.print(" Delta=");
   Serial.println(delta);
-  */
+  
 >>>>>>> 39c0c19 (OLED integreret)
+*/
