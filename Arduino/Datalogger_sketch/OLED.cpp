@@ -29,7 +29,7 @@ void OledDisplay::showData(const char* date,
                            float hum2,
                            String soundLevel)
 {
-        display.clearDisplay();
+    display.clearDisplay();
     display.setTextSize(1);
     display.setCursor(0, 0);
 
