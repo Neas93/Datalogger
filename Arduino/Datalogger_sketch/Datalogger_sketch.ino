@@ -3,11 +3,13 @@
 #include "RTC.h"
 #include "SensorData.h"
 #include "Lys_Sensor.h"
+#include "Mic.h"
 
 // Komponenter & pins
 TempSensor sensor1(7);
 TempSensor sensor2(6);
 LysSensor ldr(A0);
+MikrofonSensor mic(A1);
 SD_log sdlog(53, "HiveLog1.txt");
 RTC clock1; //dedikerede pins til RTC digital 20 & 21
 
@@ -62,6 +64,14 @@ void loop()
     Serial.print(" °C, Fugtighed: ");
     Serial.print(d.hum2, 1);
     Serial.println("%");
+
+    int amplitude = mic.readAmplitude(2000); // 2000 samples er nok
+String soundLevel = mic.classifyActivity(amplitude);
+
+Serial.print("Sound amplitude: ");
+Serial.print(amplitude);
+Serial.print(" | Activity: ");
+Serial.println(soundLevel);
 
     String dayOrNight = ldr.getDayOrNight();
     Serial.println(dayOrNight);
