@@ -36,8 +36,7 @@ void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float h
     file.print("|S1Temp:"); file.print(temp1, 1);
     file.print("|S1Hum:"); file.print(hum1, 1);
     file.print("%|S2Temp:"); file.print(temp2, 1);
-    file.print("|S2Hum:"); file.print(hum2, 1);
-    file.println("%");
+    file.print("|S2Hum:"); file.print(hum2, 1); file.print("%");
 
     file.close();
     Serial.println("Data indskrevet på SD");

@@ -63,7 +63,6 @@ void loop()
     Serial.print(d.hum2, 1);
     Serial.println("%");
 
-    Serial.print("Lys-værdi: ");
     Serial.println(d.light, 1);
 
     String timestamp = clock1.getTimestamp();
