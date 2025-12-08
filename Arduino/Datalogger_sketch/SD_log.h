@@ -11,5 +11,5 @@ public:
     SD_log(int cs, const char* name);
 
     void begin();
-    void log(String timestamp, float temp1, float hum1, float temp2, float hum2, String dayOrNight);
+    void log(String timestamp, float temp1, float hum1, float temp2, float hum2, String soundLevel, String dayOrNight);
 };

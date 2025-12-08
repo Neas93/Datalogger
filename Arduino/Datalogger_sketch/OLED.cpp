@@ -26,7 +26,8 @@ void OledDisplay::showData(const char* date,
                            float temp1,
                            float hum1,
                            float temp2,
-                           float hum2)
+                           float hum2,
+                           String soundLevel)
 {
         display.clearDisplay();
     display.setTextSize(1);
@@ -53,6 +54,10 @@ void OledDisplay::showData(const char* date,
     display.print("Fugt ude:      ");
     display.print(hum2, 1);
     display.println(" %");
+
+    display.println(" ");
+    display.print("Lyd: ");
+    display.println(soundLevel);
 
     display.display();
 }

@@ -24,7 +24,7 @@ void SD_log::begin()
     }
 }
 
-void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float hum2, String dayOrNight)
+void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float hum2, String soundLevel, String dayOrNight)
 {
     File file = SD.open(fileName, FILE_WRITE);
     if (!file) 
@@ -38,7 +38,7 @@ void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float h
     file.print("|S1Hum:"); file.print(hum1, 1);
     file.print("%|S2Temp:"); file.print(temp2, 1);
     file.print("|S2Hum:"); file.print(hum2, 1);
-    file.print("%|"); file.println(dayOrNight + "|");
+    file.print("%|"); file.print(soundLevel+"|"); file.println(dayOrNight+"|");
 
     file.close();
     Serial.println("Data indskrevet på SD");

@@ -42,9 +42,6 @@ void loop()
 
         d.light = ldr.readLight();
 
-        Serial.print("Temp1: "); Serial.print(d.temp1);
-        Serial.print(" | Temp2: "); Serial.println(d.temp2);
-
         // Stop loopet hvis data er gyldig
         if (d.temp1 > -40 && d.temp2 > -40)
         {
@@ -69,20 +66,18 @@ void loop()
     Serial.println("%");
 
     int amplitude = mic.readAmplitude(2000); // 2000 samples er nok
-String soundLevel = mic.classifyActivity(amplitude);
+    String soundLevel = mic.classifyActivity(amplitude);
 
-Serial.print("Sound amplitude: ");
-Serial.print(amplitude);
-Serial.print(" | Activity: ");
-Serial.println(soundLevel);
+    Serial.print("Aktivitet: ");
+    Serial.print(soundLevel);
 
     String dayOrNight = ldr.getDayOrNight();
-    Serial.println(dayOrNight);
+    Serial.println(" | "+dayOrNight);
 
     String timestamp = clock1.getTimestamp();
 
     // Logging til SD
-    sdlog.log(timestamp, d.temp1, d.hum1, d.temp2, d.hum2, dayOrNight);
+    sdlog.log(timestamp, d.temp1, d.hum1, d.temp2, d.hum2,soundLevel, dayOrNight);
 
     Serial.print("Tidspunkt: ");
     Serial.println(timestamp);
@@ -96,7 +91,7 @@ Serial.println(soundLevel);
       d.temp1,
       d.hum1,
       d.temp2,
-      d.hum2);
+      d.hum2, soundLevel);
 
     delay(3000); // 10 min interval mellem korrekte målinger
 }

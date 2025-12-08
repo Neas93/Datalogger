@@ -28,9 +28,9 @@ String MikrofonSensor::classifyActivity(int amplitude)
 {
     // Sammenlign amplitude med trin og returner tekst
     if (amplitude < 10) 
-        return "Very quiet";           // meget stille
+        return "Lav aktivitet ";           // meget stille
     else if (amplitude < 40) 
-        return "Normal activity";       // normal lyd
+        return "Normal aktivitet";       // normal lyd
     else 
-        return "High activity";         // meget lyd
+        return "Høj aktivitet";         // meget lyd
 }

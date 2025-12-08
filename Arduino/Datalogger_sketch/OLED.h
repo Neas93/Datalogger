@@ -16,7 +16,8 @@ public:
                   float temp1,
                   float hum1,
                   float temp2,
-                  float hum2);
+                  float hum2,
+                  String soundLevel);
 
 private:
     static const int SCREEN_WIDTH  = 128;
