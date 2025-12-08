@@ -1,11 +1,11 @@
-#include "TempSensor1.h"
+#include "TempSensor.h"
 #include "SD_log.h"
 #include "RTC.h"
 #include "SensorData.h"
 
 // Komponenter & pins
-TempSensor1 sensor1(7);
-TempSensor1 sensor2(6);
+TempSensor sensor1(7);
+TempSensor sensor2(6);
 SD_log sdlog(53, "HiveLog1.txt");
 RTC clock1; //dedikerede pins til RTC digital 20 & 21
 
