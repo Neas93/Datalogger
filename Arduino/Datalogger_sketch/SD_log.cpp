@@ -18,7 +18,7 @@ void SD_log::begin()
     File file = SD.open(fileName, FILE_WRITE);
     if (file) {
         file.println("Starter logføring:");
-        file.println("Ved måling skubbes måling 2 sek")
+        file.println("Ved måling skubbes måling 2 sek");
         file.println("Format: Timestamp | S1 Temp | S1 Hum | S2 Temp | S2 Hum");
         file.close();
     }

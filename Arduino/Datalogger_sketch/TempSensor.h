@@ -2,12 +2,12 @@
 #include <Arduino.h>
 #include <dhtnew.h>
 // deklarering af klassen til temp og fugt sensorer
-class TempSensor1
+class TempSensor
 {
 public:
     DHTNEW sensor;
 
-    TempSensor1(int pin);
+    TempSensor(int pin);
 
     float readTemperature();
     float readHumidity();
