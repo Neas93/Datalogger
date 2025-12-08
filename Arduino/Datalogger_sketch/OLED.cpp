@@ -1,59 +1,58 @@
-/*
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
 #include "OLED.h"
 
-OledDisplay::OledDisplay():
-display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1){}
 
-void OledDisplay::begin(){
-    if (!display.begin(SSD1306_SWITCHAPVCC, 0x3C)){
-        serial.println("Skærm virker ikke");
+
+OledDisplay::OledDisplay()
+: display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1)
+{
+}
+
+void OledDisplay::begin() {
+    if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+        Serial.println("Skærm virker ikke");
         for(;;);
     }
+
     display.clearDisplay();
     display.setTextColor(SSD1306_WHITE);
 }
-void OledDisplay::showData(const char* date, const char* time, float temp1, float hum1, float temp2, float hum2)
+
+void OledDisplay::showData(const char* date,
+                           const char* time,
+                           float temp1,
+                           float hum1,
+                           float temp2,
+                           float hum2)
 {
-    display.clearDisplay();
-    
-    // TITEL er fjernet, da der ikke er plads på OLED displayet til al information.
-    display.setTextSize(2);
-    display.setCursor(0, 0);
-    display.println("Datalogger");
-
+        display.clearDisplay();
     display.setTextSize(1);
-    display.setCursor(0,35);
-    display.print("dato:");
-    display.print(dt.day);
-    display.print("/");
-    display.print(dt.month)
-    display.print("-");
-    display.print(dt.year);
+    display.setCursor(0, 0);
 
-    diasply.print("\nTid:");
-    display.print(dt.hour);
-    display.print(":");
-    display.print(dt.minute);
-    display.print(":");
-    display.print(dt.second);
+    display.print("Dato:      ");
+    display.println(date);
 
-    display.print("\nTemp. inde");
+    display.print("Tid:         ");
+    display.println(time);
+
+    display.print("Temp. inde:    ");
     display.print(temp1, 1);
-    display.print(" C");
+    display.println(" C");
 
-    display.println("\nFugt inde");
+    display.print("Fugt inde:     ");
     display.print(hum1, 1);
-    display.print("%");
+    display.println(" %");
 
-
-    display.print("\nTemp. ude");
+    display.print("Temp. ude:     ");
     display.print(temp2, 1);
-    display.print(" C");
+    display.println(" C");
 
-    display.println("\nFugt ude");
+    display.print("Fugt ude:      ");
     display.print(hum2, 1);
-    display.print("%");
+    display.println(" %");
 
     display.display();
 }
-*/

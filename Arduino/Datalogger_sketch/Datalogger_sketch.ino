@@ -3,6 +3,7 @@
 #include "RTC.h"
 #include "SensorData.h"
 #include "Lys_Sensor.h"
+#include "OLED.h"
 
 // Komponenter & pins
 TempSensor sensor1(7);
@@ -10,6 +11,7 @@ TempSensor sensor2(6);
 LysSensor ldr(A0);
 SD_log sdlog(53, "HiveLog1.txt");
 RTC clock1; //dedikerede pins til RTC digital 20 & 21
+OledDisplay oled; 
 
 void setup()
 {
@@ -19,6 +21,8 @@ void setup()
 // Start SD og RTC
     sdlog.begin();
     clock1.begin();
+    oled.begin();
+    
 }
 
 void loop()
@@ -74,5 +78,19 @@ void loop()
     Serial.print("Tidspunkt: ");
     Serial.println(timestamp);
 
-    delay(2000); // 10 min interval mellem korrekte målinger
+    
+
+    String dateStr = timestamp.substring(0, 10);
+    String timeStr = timestamp.substring(11, 19);
+
+    oled.showData(
+      dateStr.c_str(),
+      timeStr.c_str(),
+      d.temp1,
+      d.hum1,
+      d.temp2,
+      d.hum2);
+
+      delay(2000); // 10 min interval mellem korrekte målinger
+
 }
