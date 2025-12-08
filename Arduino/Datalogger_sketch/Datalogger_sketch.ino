@@ -84,5 +84,5 @@ Serial.println(soundLevel);
     Serial.print("Tidspunkt: ");
     Serial.println(timestamp);
 
-    delay(2000); // 10 min interval mellem korrekte målinger
+    delay(3000); // 10 min interval mellem korrekte målinger
 }
