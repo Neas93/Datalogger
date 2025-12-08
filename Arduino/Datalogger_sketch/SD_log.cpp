@@ -24,7 +24,7 @@ void SD_log::begin()
     }
 }
 
-void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float hum2)
+void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float hum2, int light)
 {
     File file = SD.open(fileName, FILE_WRITE);
     if (!file) {

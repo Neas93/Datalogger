@@ -6,4 +6,5 @@ struct SensorData {
     float hum1;
     float temp2;
     float hum2;
+    int light;
 };
