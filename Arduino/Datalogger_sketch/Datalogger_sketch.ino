@@ -63,12 +63,13 @@ void loop()
     Serial.print(d.hum2, 1);
     Serial.println("%");
 
-    Serial.println(d.light, 1);
+    String dayOrNight = ldr.getDayOrNight();
+    Serial.println(dayOrNight);
 
     String timestamp = clock1.getTimestamp();
 
     // Logging til SD
-    sdlog.log(timestamp, d.light, d.temp1, d.hum1, d.temp2, d.hum2);
+    sdlog.log(timestamp, d.temp1, d.hum1, d.temp2, d.hum2, dayOrNight);
 
     Serial.print("Tidspunkt: ");
     Serial.println(timestamp);

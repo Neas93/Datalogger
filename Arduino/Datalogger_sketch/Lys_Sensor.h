@@ -9,5 +9,7 @@ public:
     LysSensor(int p);
 
     int readLight();
+
+    String getDayOrNight();
 };
 

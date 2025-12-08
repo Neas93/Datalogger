@@ -7,3 +7,8 @@ LysSensor::LysSensor(int p) : pin(p) {
 int LysSensor::readLight() {
     return analogRead(pin);
 }
+
+String LysSensor::getDayOrNight() {
+    int value = readLight();     // læs lysværdi
+    return (value < 250) ? "Nat" : "Dag";
+}
