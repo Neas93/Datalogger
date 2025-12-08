@@ -56,7 +56,7 @@ void OledDisplay::showData(const char* date,
     display.println(" %");
 
     display.println(" ");
-    display.print("Lyd: ");
+    display.print("Lyd:    ");
     display.println(soundLevel);
 
     display.display();
