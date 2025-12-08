@@ -1,27 +1,16 @@
-/*<<<<<<< HEAD
-#pragma once
-
-class MicSensor {
-public:
-    int pin;                
-
-    MicSensor(int p);       
-    bool aktivitet();       // Returnerer true hvis der er lyd
-};
-=======
-
 #pragma once
 #include <Arduino.h>
 
-class LydSensor
+class MikrofonSensor
 {
 public:
     int pin;
 
-    LydSensor(int p);
+    MikrofonSensor(int p);
 
-    int readLyd();
+    // Måler amplitude (mx–mn) over et antal samples
+    int readAmplitude(int samples = 10000);
+
+    // Returnerer tekst baseret på hvor meget aktivitet der er
+    String classifyActivity(int amplitude);
 };
-
->>>>>>> 39c0c19 (OLED integreret)
-*/
