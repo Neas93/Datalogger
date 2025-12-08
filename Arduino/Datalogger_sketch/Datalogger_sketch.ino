@@ -93,5 +93,5 @@ void loop()
       d.temp2,
       d.hum2, soundLevel);
 
-    delay(3000); // 10 min interval mellem korrekte målinger
+    delay(600000); // 10 min interval mellem korrekte målinger
 }
