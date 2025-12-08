@@ -27,7 +27,8 @@ void SD_log::begin()
 void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float hum2, String dayOrNight)
 {
     File file = SD.open(fileName, FILE_WRITE);
-    if (!file) {
+    if (!file) 
+    {
         Serial.println("Fejl i åbning af logfil!");
         return;
     }
