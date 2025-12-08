@@ -1,75 +1,71 @@
 #include "TempSensor1.h"
-#include "TempSensor2.h"
 #include "SD_log.h"
 #include "RTC.h"
+#include "SensorData.h"
 
-// Opret instanser
+// Komponenter & pins
 TempSensor1 sensor1(7);
-TempSensor2 sensor2(6);
+TempSensor1 sensor2(6);
 SD_log sdlog(53, "HiveLog1.txt");
-RTC clock1;
+RTC clock1; //dedikerede pins til RTC digital 20 & 21
 
 void setup()
 {
     Serial.begin(9600);
     delay(3000);
 
-    // Start SD og RTC
+// Start SD og RTC
     sdlog.begin();
     clock1.begin();
 }
 
 void loop()
 {
-    float temp1 = 0;
-    float hum1  = 0;
-    float temp2 = 0;
-    float hum2  = 0;
+    SensorData d;
 
-    // Fejlsikring: tjek kun temperaturer
+    // Loop for at undgå ugyldige data | ingen log ved fejlmåling
     while (true)
     {
-        // Læs sensorer (brug eksisterende variabler)
-        temp1 = sensor1.readTemperature();
-        hum1  = sensor1.readHumidity();
+        // Aflæsning af sensorer
+        d.temp1 = sensor1.readTemperature();
+        d.hum1  = sensor1.readHumidity();
 
-        temp2 = sensor2.readTemperature();
-        hum2  = sensor2.readHumidity();
+        d.temp2 = sensor2.readTemperature();
+        d.hum2  = sensor2.readHumidity();
 
-        Serial.print("Temp1: "); Serial.print(temp1);
-        Serial.print(" | Temp2: "); Serial.println(temp2);
+        Serial.print("Temp1: "); Serial.print(d.temp1);
+        Serial.print(" | Temp2: "); Serial.println(d.temp2);
 
-        // Bryd loopet hvis begge temperaturer er OK
-        if (temp1 > -40 && temp2 > -40)
+        // Stop loopet hvis data er gyldig
+        if (d.temp1 > -40 && d.temp2 > -40)
         {
             break;
         }
 
-        Serial.println("Fejl i temperaturmåling, prøver igen...");
-        delay(2000);
+        Serial.println("Fejl i måling, prøver igen");
+        delay(2000); // 2 sek interval mellem fejlmålinger
     }
 
-    // Udskriv til Serial
+    // Udskriv til Serial / PC
     Serial.print("Sensor 1 - Temperatur: ");
-    Serial.print(temp1, 1);
+    Serial.print(d.temp1, 1);
     Serial.print(" °C, Fugtighed: ");
-    Serial.print(hum1, 1);
+    Serial.print(d.hum1, 1);
     Serial.println("%");
 
     Serial.print("Sensor 2 - Temperatur: ");
-    Serial.print(temp2, 1);
+    Serial.print(d.temp2, 1);
     Serial.print(" °C, Fugtighed: ");
-    Serial.print(hum2, 1);
+    Serial.print(d.hum2, 1);
     Serial.println("%");
 
-    // Timestamp
     String timestamp = clock1.getTimestamp();
 
-    // Log til SD
-    sdlog.log(timestamp, temp1, hum1, temp2, hum2);
+    // Logging til SD
+    sdlog.log(timestamp, d.temp1, d.hum1, d.temp2, d.hum2);
 
     Serial.print("Tidspunkt: ");
     Serial.println(timestamp);
 
-    delay(2000); // 10 min
+    delay(2000); // 10 min interval mellem korrekte målinger
 }
