@@ -65,6 +65,7 @@ void loop()
     Serial.print(d.hum2, 1);
     Serial.println("%");
 
+
     int amplitude = mic.readAmplitude(2000); // 2000 samples er nok
     String soundLevel = mic.classifyActivity(amplitude);
 
@@ -77,7 +78,7 @@ void loop()
     String timestamp = clock1.getTimestamp();
 
     // Logging til SD
-    sdlog.log(timestamp, d.temp1, d.hum1, d.temp2, d.hum2,soundLevel, dayOrNight);
+    sdlog.log(timestamp, d.temp1, d.hum1, d.temp2, d.hum2,soundLevel, dayOrNight, d.light);
 
     Serial.print("Tidspunkt: ");
     Serial.println(timestamp);
