@@ -19,7 +19,7 @@ void SD_log::begin()
     if (file) {
         file.println("Starter logføring:");
         file.println("Ved måling skubbes måling 2 sek");
-        file.println("Format: Timestamp | S1 Temp | S1 Hum | S2 Temp | S2 Hum");
+        file.println("Format: Timestamp | S1 Temp | S1 Fugt | S2 Temp | S2 Fugt");
         file.close();
     }
 }
@@ -35,9 +35,9 @@ void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float h
 //opsætning og indskrivning af data i fil samt færdigmelding
     file.print(timestamp);
     file.print("|S1Temp:"); file.print(temp1, 1);
-    file.print("|S1Hum:"); file.print(hum1, 1);
+    file.print("|S1Fugt:"); file.print(hum1, 1);
     file.print("%|S2Temp:"); file.print(temp2, 1);
-    file.print("|S2Hum:"); file.print(hum2, 1);
+    file.print("|S2Fugt:"); file.print(hum2, 1);
     file.print("%|"); file.print(soundLevel+"|"); file.println(dayOrNight+"|");
 
     file.close();
