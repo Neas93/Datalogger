@@ -19,7 +19,7 @@ void SD_log::begin()
     if (file) {
         file.println("Starter logføring:");
         file.println("Ved måling skubbes måling 2 sek");
-        file.println("Format: Timestamp | S1 Temp | S1 Fugt | S2 Temp | S2 Fugt");
+        file.println("Format: Tid | S1 Temp | S1 Fugt | S2 Temp | S2 Fugt");
         file.close();
     }
 }
