@@ -28,6 +28,7 @@ void setup()
 
 void loop()
 {
+
     SensorData d;
 
     // Loop for at undgå ugyldige data | ingen log ved fejlmåling

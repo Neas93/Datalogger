@@ -37,14 +37,11 @@ void SD_log::log(String timestamp, float temp1, float hum1, float temp2, float h
     file.print("|S1Temp:"); file.print(temp1, 1);
     file.print("|S1Fugt:"); file.print(hum1, 1);
     file.print("%|S2Temp:"); file.print(temp2, 1);
-<<<<<<< HEAD
+
     file.print("|S2Fugt:"); file.print(hum2, 1);
-    file.print("%|"); file.print(soundLevel+"|"); file.println(dayOrNight+"|");
-=======
-    file.print("|S2Hum:"); file.print(hum2, 1);
     file.print("%|"); file.print(soundLevel+"|"); file.print(dayOrNight+"|");
     file.print("Lys:");file.print(light);file.print("\n");
->>>>>>> 55b9331 (Lys SD Log)
+
 
     file.close();
     Serial.println("Data indskrevet på SD");
