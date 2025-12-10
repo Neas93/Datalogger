@@ -1,5 +1,4 @@
-#ifndef OLED_H
-#define OLED_H
+#pragma once
 
 #include <Arduino.h>
 #include <Adafruit_GFX.h>
@@ -11,13 +10,15 @@ public:
 
     void begin();
 
+    // Tilføj SD_active som sidste parameter
     void showData(const char* date,
                   const char* time,
                   float temp1,
                   float hum1,
                   float temp2,
                   float hum2,
-                  String soundLevel);
+                  String soundLevel,
+                  String SD_active);
 
 private:
     static const int SCREEN_WIDTH  = 128;
@@ -26,4 +27,3 @@ private:
     Adafruit_SSD1306 display;
 };
 
-#endif

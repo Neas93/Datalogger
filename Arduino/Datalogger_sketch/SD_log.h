@@ -8,8 +8,12 @@ public:
     int csPin;
     const char* fileName;
 
+    bool lastWriteSuccess; // status for sidste logforsøg
+
     SD_log(int cs, const char* name);
 
     void begin();
     void log(String timestamp, float temp1, float hum1, float temp2, float hum2, String soundLevel, String dayOrNight, int light);
+
+    bool isLastWriteOK() { return lastWriteSuccess; } // check på sidste SD-skrivning
 };
