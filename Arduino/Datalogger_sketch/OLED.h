@@ -10,7 +10,7 @@ public:
 
     void begin();
 
-    // Tilføj SD_active som sidste parameter
+    
     void showData(const char* date,
                   const char* time,
                   float temp1,

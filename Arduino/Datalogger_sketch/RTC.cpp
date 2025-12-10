@@ -10,7 +10,6 @@ void RTC::begin()
     Wire.begin();
     clock.begin();
     Serial.println("RTC klar");
-    //clock.setDateTime(2025, 12, 9, 14, 17, 20);
 }
 
 String RTC::getTimestamp()

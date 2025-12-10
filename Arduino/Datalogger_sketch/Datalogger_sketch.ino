@@ -21,9 +21,9 @@ void setup()
     delay(3000);
 
     // Start SD, RTC & OLED
+    oled.begin();
     sdlog.begin();
     clock1.begin();
-    oled.begin();
 }
 
 void loop()
@@ -81,5 +81,5 @@ void loop()
           soundLevel,
           sdStatus);
 
-    delay(60000); // 10 min interval
+    delay(600000); // 10 min interval
 }
