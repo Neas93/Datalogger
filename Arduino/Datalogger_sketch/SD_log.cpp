@@ -20,11 +20,11 @@ void SD_log::begin()
     File file = SD.open(fileName, FILE_WRITE);
     if (file) {
         file.println("Starter logføring:");
-        file.println("Ved måling skubbes måling 2 sek");
+        file.println("Ved fejl skubbes måling 2 sek");
         file.println("Format: Tid | S1 Temp | S1 Fugt | S2 Temp | S2 Fugt");
         file.close();
     } else {
-        Serial.println("FEJL: Kan ikke åbne logfil ved start");
+        Serial.println("FEJL: Kan ikke åbne logfil");
         lastWriteSuccess = false;
     }
 }
