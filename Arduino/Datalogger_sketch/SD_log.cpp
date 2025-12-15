@@ -5,6 +5,7 @@ SD_log::SD_log(int cs, const char* name)
     csPin = cs;
     fileName = name;
     lastWriteSuccess = true; // default til OK
+    //Ide til denne løsning med en opdaterende boolean, blev foreslået af GPT 
 }
 
 void SD_log::begin()
@@ -12,7 +13,7 @@ void SD_log::begin()
     Serial.print("Indlæser SD... ");
     if (!SD.begin(csPin)) {
         Serial.println("FEJL!");
-        lastWriteSuccess = false;
+        lastWriteSuccess = false; 
         return;
     }
     Serial.println("OK");

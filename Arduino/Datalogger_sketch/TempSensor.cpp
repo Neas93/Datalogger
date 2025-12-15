@@ -1,6 +1,6 @@
 #include "TempSensor.h"
 
-//construcor til sensorer, klargøring til hvilken digital pin den monteres | deklareres i ino
+//construcor til sensorerne, klargøring til hvilken digital pin den monteres | deklareres i ino
 TempSensor::TempSensor(int pin) : sensor(pin) { }
 
 float TempSensor::readTemperature() 

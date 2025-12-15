@@ -12,6 +12,6 @@ int LysSensor::readLight()
 
 String LysSensor::getDayOrNight()
 {
-    int value = readLight();     // filtrer dagtimer vs nattetimer ud fra sensor output
+    int value = readLight();     // filtrer dagtimer vs nattetimer ud fra analog sensor output under/over 250
     return (value < 250) ? "Nat" : "Dag";
 }

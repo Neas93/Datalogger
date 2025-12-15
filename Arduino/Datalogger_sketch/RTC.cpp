@@ -17,6 +17,8 @@ String RTC::getTimestamp()
     clock.forceConversion();       // Opdaterer intern temperatur/time | sikring af præcision i måling
     dt = clock.getDateTime();      // Hent dato/tid
 
+    //ChatGPT løsning for mere optimeret og pladsbesparende løsning ved brug af char buffer og snprint
+
     char buffer[25]; // Reserverer 25 bytes til den string der indeholder timestamp
     snprintf(buffer, sizeof(buffer),
              "%04d-%02d-%02d %02d:%02d:%02d",
