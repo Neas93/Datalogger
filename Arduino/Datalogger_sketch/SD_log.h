@@ -8,7 +8,7 @@ public:
     int csPin;
     const char* fileName;
 
-    bool lastWriteSuccess; // status for sidste logforsøg | opdateres hver gang der tjekkes for om logfilen er åben eller ej
+    bool lastWriteSuccess; // Status for sidste logforsøg | opdateres hver gang der tjekkes for om logfilen er åben eller ej
 
     SD_log(int cs, const char* name);
 

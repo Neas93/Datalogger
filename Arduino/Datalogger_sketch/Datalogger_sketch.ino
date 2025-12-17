@@ -12,7 +12,7 @@ TempSensor sensor2(6);
 LysSensor ldr(A0);
 MikrofonSensor mic(A1);
 SD_log sdlog(53, "HiveLog1.txt");
-RTC clock1; // dedikerede pins til RTC digital 20 & 21
+RTC clock1; // Dedikerede pins til RTC digital 20 & 21
 OledDisplay oled; // SCL & SDA
 
 void setup()
