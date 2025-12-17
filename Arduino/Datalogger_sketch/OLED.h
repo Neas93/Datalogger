@@ -10,7 +10,7 @@ public:
 
     void begin();
 
-    // Listing af variabler til visning
+    // Listing af variabler til visning.
     void showData(const char* date,
                   const char* time,
                   float temp1,
